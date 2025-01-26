@@ -43,6 +43,13 @@ const styles = StyleSheet.create((theme, runtime) => ({
 				: undefined,
 		alignItems: "center",
 		justifyContent: "center",
+		gap: {
+			xs: 0,
+			sm: theme.spacing.xs,
+			md: theme.spacing.sm,
+		},
+		padding: theme.spacing.xs,
+		borderRadius: theme.radius.md,
 		flexDirection:
 			runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
 				? "column"
