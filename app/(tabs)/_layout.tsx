@@ -46,9 +46,6 @@ const styles = StyleSheet.create((theme, runtime) => ({
 			xs: "row",
 			md: "column",
 		},
-		height: {
-			xs: 150,
-		},
 		padding: theme.spacing.md,
 		width: {
 			xs: "100%",
