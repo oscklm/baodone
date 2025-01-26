@@ -43,11 +43,7 @@ const styles = StyleSheet.create((theme, runtime) => ({
 				: undefined,
 		alignItems: "center",
 		justifyContent: "center",
-		gap: {
-			xs: 0,
-			sm: theme.spacing.xs,
-			md: theme.spacing.sm,
-		},
+		gap: theme.spacing.xs,
 		padding: theme.spacing.xs,
 		borderRadius: theme.radius.md,
 		flexDirection:
