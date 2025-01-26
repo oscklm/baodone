@@ -43,10 +43,10 @@ const styles = StyleSheet.create((theme, runtime) => ({
 				: undefined,
 		alignItems: "center",
 		justifyContent: "center",
-		flexDirection: {
-			xs: "column",
-			sm: "row",
-		},
+		flexDirection:
+			runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
+				? "column"
+				: "row",
 		variants: {
 			isFocused: {
 				true: {
