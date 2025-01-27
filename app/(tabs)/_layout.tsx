@@ -37,19 +37,18 @@ const styles = StyleSheet.create((theme, runtime) => ({
 			xs: "column",
 			md: "row-reverse",
 		},
-		backgroundColor: theme.colors.backgroundDark,
 	},
 	tabList: {
 		marginBottom: runtime.insets.bottom,
-		gap: theme.spacing.md,
+		gap: theme.space.$100,
 		flexDirection: {
 			xs: "row",
 			md: "column",
 		},
-		padding: theme.spacing.md,
+		padding: theme.space.$200,
 		width: {
 			xs: "100%",
-			md: 200,
+			md: 100,
 		},
 	},
 	tabSlot: {

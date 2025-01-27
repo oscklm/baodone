@@ -1,5 +1,5 @@
 import type { TabTriggerSlotProps } from "expo-router/ui";
-import { Pressable, type View, type ViewStyle } from "react-native";
+import { Pressable, type View } from "react-native";
 import { forwardRef } from "react";
 import { StyleSheet } from "react-native-unistyles";
 import { Icons } from "./icons";
@@ -12,7 +12,7 @@ type TabButtonProps = TabTriggerSlotProps & {
 };
 
 export const TabButton = forwardRef<View, TabButtonProps>(
-	({ children, isFocused, icon, ...props }, ref) => {
+	({ children, isFocused, icon, style, ...props }, ref) => {
 		const Icon = Icons[icon];
 
 		styles.useVariants({
@@ -20,16 +20,8 @@ export const TabButton = forwardRef<View, TabButtonProps>(
 		});
 
 		return (
-			<Pressable
-				{...props}
-				style={({ pressed, hovered }) => [
-					styles.container,
-					pressed ? styles.pressed : {},
-					hovered ? styles.hovered : {},
-				]}
-			>
+			<Pressable {...props} style={styles.container}>
 				<Icon size={21} color={styles.icon.color} />
-				<Text>{children}</Text>
 			</Pressable>
 		);
 	},
@@ -43,12 +35,9 @@ const styles = StyleSheet.create((theme, runtime) => ({
 				: undefined,
 		alignItems: "center",
 		justifyContent: "center",
-		gap: theme.spacing.xs,
-		paddingVertical:
-			runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
-				? theme.spacing.xs
-				: theme.spacing.md,
-		borderRadius: theme.radius.md,
+		gap: theme.space.$100,
+		paddingVertical: theme.space.$200,
+		borderRadius: theme.radius.$100,
 		flexDirection:
 			runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
 				? "column"
@@ -63,12 +52,6 @@ const styles = StyleSheet.create((theme, runtime) => ({
 				},
 			},
 		},
-	},
-	pressed: {
-		opacity: 0.8,
-	},
-	hovered: {
-		backgroundColor: theme.colors.backgroundLight,
 	},
 	icon: {
 		color: theme.colors.foreground,

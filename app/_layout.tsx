@@ -31,6 +31,8 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
 	const [loaded, error] = useFonts({
 		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+		Onramp: require("../assets/fonts/ONRAMP.ttf"),
+		OswaldRegular: require("../assets/fonts/Oswald-Regular.ttf"),
 		...FontAwesome.font,
 	});
 
@@ -83,7 +85,7 @@ function RootLayoutNav() {
 				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 				<Stack.Screen
 					name="help"
-					options={{ title: "Help", presentation: "modal" }}
+					options={{ headerShown: false, presentation: "modal" }}
 				/>
 			</Stack>
 		</ThemeProvider>
