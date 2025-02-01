@@ -64,17 +64,15 @@ const space = {
   $500: baseUnit * 5, // 40px (5x)
   $600: baseUnit * 6, // 48px (6x)
   $800: baseUnit * 8, // 64px (8x)
-  negative: {
-    $025: baseUnit * -0.25, // -2px - negate parent whitespace or overlap small pieces of UI
-    $050: baseUnit * -0.5, // -4px - negate parent whitespace or overlap small pieces of UI
-    $075: baseUnit * -0.75, // -6px - negate parent whitespace or overlap small pieces of UI
-    $100: baseUnit * -1, // -8px - negate parent whitespace or overlap small pieces of UI
-    $150: baseUnit * -1.5, // -12px - negate parent whitespace or overlap larger pieces of UI
-    $200: baseUnit * -2, // -16px - negate parent whitespace or overlap larger pieces of UI
-    $250: baseUnit * -2.5, // -20px - negate parent whitespace or overlap larger pieces of UI
-    $300: baseUnit * -3, // -24px - negate parent whitespace or overlap larger pieces of UI
-    $400: baseUnit * -4, // -32px - negate parent whitespace or overlap the largest pieces of UI
-  },
+  "-$025": baseUnit * -0.25, // -2px - negate parent whitespace or overlap small pieces of UI
+  "-$050": baseUnit * -0.5, // -4px - negate parent whitespace or overlap small pieces of UI
+  "-$075": baseUnit * -0.75, // -6px - negate parent whitespace or overlap small pieces of UI
+  "-$100": baseUnit * -1, // -8px - negate parent whitespace or overlap small pieces of UI
+  "-$150": baseUnit * -1.5, // -12px - negate parent whitespace or overlap larger pieces of UI
+  "-$200": baseUnit * -2, // -16px - negate parent whitespace or overlap larger pieces of UI
+  "-$250": baseUnit * -2.5, // -20px - negate parent whitespace or overlap larger pieces of UI
+  "-$300": baseUnit * -3, // -24px - negate parent whitespace or overlap larger pieces of UI
+  "-$400": baseUnit * -4, // -32px - negate parent whitespace or overlap the largest pieces of UI
 } as const;
 
 const radius = {
@@ -85,8 +83,8 @@ const radius = {
 };
 
 const sharedColors = {
-  primary: "#3DFF8E",
-  primaryLight: "#95FFC1",
+  primary: "#6F5BD9",
+  primaryLight: "#BAA7F7",
 };
 
 const fontFamily = {
