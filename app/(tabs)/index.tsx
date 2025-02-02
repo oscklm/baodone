@@ -2,15 +2,16 @@ import { ScreenHeader } from "@/components/ScreenHeader";
 import { Stack, Button, Text } from "@/components/ui";
 import { router } from "expo-router";
 import { ScrollView, View } from "react-native";
+import { Image } from "expo-image";
 import { StyleSheet } from "react-native-unistyles";
 import { Box } from "@/components/ui/Box";
 
-export default function TabOneScreen() {
+export default function HomeTabScreen() {
   return (
     <ScrollView>
       <View style={styles.container}>
         <ScreenHeader>
-          <Text variant="h1">Baodone</Text>
+          <Text variant="h1">Home</Text>
         </ScreenHeader>
         <Box us={{ gap: "$300" }}>
           <Box
@@ -20,6 +21,15 @@ export default function TabOneScreen() {
               backgroundColor: "primary",
             }}
           >
+            <Box height={200} width={200}>
+              <Image
+                source={require("@/assets/images/characters/bun_smile-background-removed.png")}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+            </Box>
             <Text variant="h2" color="white">
               Your personal assistant
             </Text>
