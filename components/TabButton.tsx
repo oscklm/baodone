@@ -8,18 +8,20 @@ type Icon = keyof typeof Icons;
 
 type TabButtonProps = TabTriggerSlotProps & {
   icon: Icon;
+  position?: "first" | "last" | "middle";
 };
 
 export const TabButton = forwardRef<View, TabButtonProps>(
-  ({ children, isFocused, icon, style, ...props }, ref) => {
+  ({ children, isFocused, icon, style, position, ...props }, ref) => {
     const Icon = Icons[icon];
 
     styles.useVariants({
       isFocused,
+      position,
     });
 
     return (
-      <Pressable {...props} style={styles.container}>
+      <Pressable ref={ref} {...props} style={styles.container}>
         <Icon size={21} color={styles.icon.color} />
       </Pressable>
     );
@@ -28,15 +30,18 @@ export const TabButton = forwardRef<View, TabButtonProps>(
 
 const styles = StyleSheet.create((theme, runtime) => ({
   container: {
-    flex:
-      runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
-        ? 1
-        : undefined,
+    flex: {
+      xs: 1,
+      md: 0,
+    },
+    minHeight: {
+      xs: 0,
+      md: 60,
+    },
     alignItems: "center",
     justifyContent: "center",
     gap: theme.space.$100,
     paddingVertical: theme.space.$200,
-    borderRadius: theme.radius.$100,
     flexDirection:
       runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
         ? "column"
@@ -47,8 +52,44 @@ const styles = StyleSheet.create((theme, runtime) => ({
           backgroundColor: theme.colors.primary,
         },
         false: {
-          backgroundColor: theme.colors.primaryLight,
+          backgroundColor: theme.colors.backgroundLight,
         },
+      },
+      position: {
+        first: {
+          borderTopLeftRadius: {
+            xs: theme.radius.$200,
+            md: theme.radius.$100,
+          },
+          borderTopRightRadius: theme.radius.$100,
+          borderBottomRightRadius: theme.radius.$100,
+          borderBottomLeftRadius: {
+            xs: theme.radius.$200 * 3,
+            md: theme.radius.$100,
+          },
+        },
+        last: {
+          borderTopRightRadius: {
+            xs: theme.radius.$200,
+            md: theme.radius.$100,
+          },
+          borderTopLeftRadius: {
+            xs: theme.radius.$100,
+            md: theme.radius.$100,
+          },
+          borderBottomRightRadius: {
+            xs: theme.radius.$200 * 3,
+            md: theme.radius.$100,
+          },
+          borderBottomLeftRadius: {
+            xs: theme.radius.$100,
+            md: theme.radius.$100,
+          },
+        },
+        middle: {
+          borderRadius: theme.radius.$100,
+        },
+        default: {},
       },
     },
   },
@@ -60,7 +101,7 @@ const styles = StyleSheet.create((theme, runtime) => ({
           color: theme.colors.background,
         },
         false: {
-          color: theme.colors.primary,
+          color: theme.colors.backgroundDark,
         },
       },
     },

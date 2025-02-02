@@ -11,6 +11,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React from "react";
 import { useEffect } from "react";
+import { Platform } from "react-native";
 import "react-native-reanimated";
 import { useUnistyles } from "react-native-unistyles";
 
@@ -81,12 +82,19 @@ function RootLayoutNav() {
       <Stack
         screenOptions={{
           headerShadowVisible: false,
+          headerTitle: () => null,
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
           name="help"
-          options={{ headerShown: false, presentation: "modal" }}
+          options={{
+            title: "Help",
+            headerShown: Platform.OS === "web",
+            presentation: "formSheet",
+            sheetElevation: 24,
+            sheetGrabberVisible: true,
+          }}
         />
       </Stack>
     </ThemeProvider>
