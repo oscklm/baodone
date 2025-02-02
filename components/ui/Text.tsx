@@ -11,6 +11,7 @@ interface TextProps extends RNTextProps {
 	variant?: FontTokens;
 	size?: FontSizeTokens;
 	color?: ColorTokens;
+	invert?: boolean;
 	as?: boolean;
 }
 
@@ -21,6 +22,7 @@ export const Text: React.FC<TextProps> = ({
 	as,
 	color = "foreground",
 	style,
+	invert,
 	...props
 }) => {
 	styles.useVariants({
@@ -28,15 +30,20 @@ export const Text: React.FC<TextProps> = ({
 	});
 
 	return (
-		<RNText style={styles.base(variant, size, color)} {...props}>
+		<RNText style={styles.base(variant, size, color, invert)} {...props}>
 			{children}
 		</RNText>
 	);
 };
 
 const styles = StyleSheet.create((theme, runtime) => ({
-	base: (variant: FontTokens, size: FontSizeTokens, color: ColorTokens) => ({
-		color: theme.colors[color],
+	base: (
+		variant: FontTokens,
+		size: FontSizeTokens,
+		color: ColorTokens,
+		invert?: boolean,
+	) => ({
+		color: invert ? theme.colors.background : theme.colors[color],
 		fontSize: theme.font[variant][size].fontSize,
 		fontFamily: theme.font[variant][size].fontFamily,
 		lineHeight: theme.font[variant][size].lineHeight,
