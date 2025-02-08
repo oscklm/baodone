@@ -31,27 +31,36 @@ export const ReusableView = ({ style, ...props }: ReusableViewProps) => {
   return <View {...props} style={{ ...rest }} />;
 };
 
+type VariantRecord<T extends keyof UnistylesValues> = {
+  [Key in T]: Record<
+    SpaceTokens,
+    { [K in Key]: UnistylesTheme["space"][SpaceTokens] }
+  >;
+};
+
+type SpaceTokens = "$0" | "$025" | "$050" | "$075" | "$100";
+
+const space = {
+  $0: 0, // 0px
+  $025: 2, // 2px  (0.25x)
+  $050: 4, // 4px  (0.5x)
+  $075: 6, // 6px  (0.75x)
+  $100: 8, // 8px  (1x) - base spacing unit
+} satisfies Record<SpaceTokens, number>;
+
 const computeVariantFromToken = <T extends keyof UnistylesValues>(
   theme: UnistylesTheme,
   property: T
-) => {
-  type VariantRecord = {
-    [P in T]: Record<
-      SpaceTokens,
-      { [K in P]: UnistylesTheme["space"][SpaceTokens] }
-    >;
-  };
+): VariantRecord<T> => {
+  const spaceEntries = Object.entries(space) as [SpaceTokens, number][];
 
-  const variants = Object.keys(theme.space).reduce((acc, token) => {
-    return {
-      ...acc,
-      [token as SpaceTokens]: {
-        [property]: theme.space[token as SpaceTokens],
-      },
-    };
-  }, {});
+  const variants = spaceEntries.reduce((acc, [token, value]) => ({
+    ...acc,
+    [token]: { [property]: value },
+  }));
 
-  return { [property]: variants } as VariantRecord;
+  // Use intermediate type assertion to handle computed property key
+  return { [property]: variants } as unknown as VariantRecord<T>;
 };
 
 const styles = StyleSheet.create((theme, runtime) => ({

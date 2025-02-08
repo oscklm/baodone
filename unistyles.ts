@@ -1,72 +1,61 @@
 import { StyleSheet } from "react-native-unistyles";
 
-/**
- * Base sizing units for the design system based on 8 pixel grid.
- *
- * Values are intentionally skipped in this scale for several reasons:
- * 1. Meaningful Increments: Limited options enforce consistency and visual harmony
- * 2. Cognitive Load: A curated set of values is easier to remember and work with
- * 3. Logarithmic Progression: Gaps between values increase as numbers get bigger because:
- *    - Small adjustments (2px vs 4px) matter more at small scales
- *    - Larger sizes (40px vs 48px) don't need as fine-grained control
- */
-const size = {
-  // Atomic sizes (for borders, small details)
-  $0: 0, // 0px
-  $025: 2, // 2px  - borders, small details
-  $050: 4, // 4px  - thin borders, hairlines
-
-  // Small components and icons
-  $100: 8, // 8px  - smallest interactive size
-  $150: 12, // 12px - small icons
-  $200: 16, // 16px - standard icons, small buttons
-
-  // Medium components
-  $300: 24, // 24px - medium icons
-  $400: 32, // 32px - avatars, buttons
-
-  // Large components
-  $500: 40, // 40px - large interactive elements
-  $600: 48, // 48px - large buttons, input heights
-
-  // Extra large components
-  $800: 64, // 64px - large avatars, featured elements
-  $1000: 80, // 80px - extra large components
-} as const;
+type Tokens = `$${0 | 25 | 50 | 100 | 150 | 200 | 300 | 400 | 500 | 600 | 800}`;
 
 /**
- * For margins, padding, gaps between elements.
- *
- * Follows the same spacing philosophy as the size scale:
- * - Very fine control at small sizes (025, 050, 075)
- * - Medium steps in the middle range (100, 150, 200)
- * - Larger jumps at the end (600, 800, 1000)
+ * Unified spacing/sizing scale with semantic categories
+ * Combines size and spacing concepts into single source of truth
+ * 
+ * 
+ * 
  */
 const space = {
-  $0: 0, // 0px
-  $025: 2, // 2px  (0.25x)
-  $050: 4, // 4px  (0.5x)
-  $075: 6, // 6px  (0.75x)
-  $100: 8, // 8px  (1x) - base spacing unit
-  $150: 12, // 12px (1.5x)
-  $200: 16, // 16px (2x)
-  $250: 20, // 20px (2.5x)
-  $300: 24, // 24px (3x)
-  $400: 32, // 32px (4x)
-  $500: 40, // 40px (5x)
-  $600: 48, // 48px (6x)
-  $800: 64, // 64px (8x)
-  "-$025": -2, // -2px
-  "-$050": -4, // -4px
-  "-$075": -6, // -6px
-  "-$100": -8, // -8px
-  "-$150": -12, // -12px
-  "-$200": -16, // -16px
-  "-$250": -20, // -20px
-  "-$300": -24, // -24px
-  "-$400": -32, // -32px
+  // Atomic scale
+  $0: 0,    // 0px
+  $25: 2,   // 2px
+  $50: 4,   // 4px
+  
+  // Base scale
+  $100: 8,  // 8px
+  $150: 12, // 12px
+  $200: 16, // 16px
+  
+  // Medium scale
+  $300: 24, // 24px
+  $400: 32, // 32px
+  
+  // Large scale
+  $500: 40, // 40px
+  $600: 48, // 48px
+  $800: 64, // 64px
+} as const satisfies Record<Tokens, number>;
+
+
+/**
+ * Component size aliases using the unified scale
+ * Provides semantic names while maintaining single source
+ */
+const sizes = {
+  // Component sizes
+  icon: {
+    small: space.$100,
+    medium: space.$200,
+    large: space.$300,
+  },
+  button: {
+    compact: space.$200,
+    standard: space.$300,
+    large: space.$400,
+  },
+  avatar: {
+    small: space.$400,
+    medium: space.$500,
+    large: space.$600,
+  },
 } as const;
 
+
+// ... existing code ...
 const radius = {
   $025: 2, // 2px - small radius
   $050: 4, // 4px - standard radius
@@ -74,9 +63,16 @@ const radius = {
   $200: 16, // 16px - extra large radius
 } as const;
 
-const sharedColors = {
-  primary: "#6F5BD9",
-  primaryLight: "#BAA7F7",
+const color = {
+  purple: {
+    100: "#BAA7F7",
+    200: "#6F5BD9",
+    300: "#5A46B9",
+    400: "#453599",
+    500: "#312479",
+    600: "#2C2066",
+    700: "#271C53",
+  },
   white: "#E4E5E7",
   black: "#313335",
 };
@@ -126,9 +122,15 @@ const font = {
   },
 } as const;
 
+const sharedColors = {
+  purple: color.purple,
+  white: color.white,
+  black: color.black,
+};
+
 const sharedValues = {
   radius,
-  size,
+  sizes,
   space,
   font,
   fontFamily,
@@ -179,12 +181,6 @@ declare module "react-native-unistyles" {
   export interface UnistylesThemes extends AppThemes {}
   export interface UnistylesBreakpoints extends AppBreakpoints {}
 
-  // Theme Variants
-  export type SizeTokens = keyof typeof size;
-  export type SpaceTokens = keyof typeof space;
-  export type RadiusTokens = keyof typeof radius;
-  export type FontTokens = keyof typeof font;
-  export type ColorTokens = keyof typeof lightTheme.colors;
 }
 
 StyleSheet.configure({
