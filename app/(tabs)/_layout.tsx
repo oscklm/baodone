@@ -13,7 +13,7 @@ export default function TabLayout() {
         </View>
         <View style={styles.tabList}>
           <TabTrigger name="home" asChild>
-            <TabButton icon="Home" position="first">
+            <TabButton icon="House" position="first">
               Home
             </TabButton>
           </TabTrigger>

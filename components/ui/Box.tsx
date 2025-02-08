@@ -15,7 +15,7 @@ export const Box = ({ variants, ...props }: BoxProps) => {
   return <View {...props} style={[styles.root, props.style]} />;
 };
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((th) => ({
   root: {
     variants: {
       direction: {
@@ -32,16 +32,16 @@ const styles = StyleSheet.create((theme) => ({
           flexDirection: "column-reverse",
         },
       },
-      margin: theme.createVariantFromProperty("margin"),
-      padding: theme.createVariantFromProperty("padding"),
-      paddingX: theme.createVariantFromProperty("paddingHorizontal"),
-      paddingY: theme.createVariantFromProperty("paddingVertical"),
-      paddingTop: theme.createVariantFromProperty("paddingTop"),
-      paddingBottom: theme.createVariantFromProperty("paddingBottom"),
-      paddingLeft: theme.createVariantFromProperty("paddingLeft"),
-      paddingRight: theme.createVariantFromProperty("paddingRight"),
-      borderWidth: theme.createVariantFromProperty("borderWidth"),
-      gap: theme.createVariantFromProperty("gap"),
+      margin: th.createVariantFromProperty("margin"),
+      padding: th.createVariantFromProperty("padding"),
+      paddingX: th.createVariantFromProperty("paddingHorizontal"),
+      paddingY: th.createVariantFromProperty("paddingVertical"),
+      paddingTop: th.createVariantFromProperty("paddingTop"),
+      paddingBottom: th.createVariantFromProperty("paddingBottom"),
+      paddingLeft: th.createVariantFromProperty("paddingLeft"),
+      paddingRight: th.createVariantFromProperty("paddingRight"),
+      borderWidth: th.createVariantFromProperty("borderWidth"),
+      gap: th.createVariantFromProperty("gap"),
     },
   },
 }));

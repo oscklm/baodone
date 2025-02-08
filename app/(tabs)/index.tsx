@@ -1,5 +1,5 @@
 import { ScreenHeader } from "@/components/ScreenHeader";
-import { Button, Text } from "@/components/ui";
+import { Button, Icons, Text } from "@/components/ui";
 import { router } from "expo-router";
 import { ScrollView, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
@@ -12,7 +12,13 @@ export default function HomeTabScreen() {
         <ScreenHeader>
           <Text preset="h1">Home</Text>
         </ScreenHeader>
+
         <Box variants={{ padding: "$100", gap: "$200" }}>
+          <Button title="Example 1" onPress={() => router.push("/help")} />
+          <Button title="Example 2" onPress={() => router.push("/help")} />
+        </Box>
+
+        <Box variants={{ direction: "row", padding: "$100", gap: "$200" }}>
           <Button title="Example 1" onPress={() => router.push("/help")} />
           <Button title="Example 2" onPress={() => router.push("/help")} />
         </Box>

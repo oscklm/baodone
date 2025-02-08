@@ -40,17 +40,17 @@ export const Button: React.FC<ButtonProps> = ({ title, ...props }) => {
   );
 };
 
-const styles = StyleSheet.create((theme, runtime) => ({
+const styles = StyleSheet.create((th) => ({
   container: {
     flexGrow: 1,
   },
   buttonView: {
-    borderRadius: theme.radius.$150,
-    paddingVertical: theme.units.$100,
+    borderRadius: th.radius.$150,
+    paddingVertical: th.units.$100,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: theme.colors.button.base,
+    backgroundColor: th.colors.button.base,
     variants: {
       pressed: {
         true: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create((theme, runtime) => ({
       },
       hovered: {
         true: {
-          backgroundColor: theme.colors.button.light,
+          backgroundColor: th.colors.button.light,
         },
       },
     },

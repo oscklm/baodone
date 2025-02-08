@@ -14,14 +14,14 @@ export default function SearchTabScreen() {
   );
 }
 
-const styles = StyleSheet.create((theme, runtime) => ({
+const styles = StyleSheet.create((th) => ({
   container: {
-    padding: theme.units.$200,
-    gap: theme.units.$100,
+    padding: th.units.$200,
+    gap: th.units.$100,
   },
   buttonContainer: {
     flexDirection: "row",
-    paddingVertical: theme.units.$200,
-    marginHorizontal: theme.units.$400,
+    paddingVertical: th.units.$200,
+    marginHorizontal: th.units.$400,
   },
 }));
