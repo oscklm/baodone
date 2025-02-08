@@ -58,11 +58,40 @@ The system uses a numeric scale with a `$` prefix, where `$100` serves as our ba
 | `$600` | 48px   | 6× base      | Extra large component sizing |
 | `$800` | 64px   | 8× base      | Maximum component sizing     |
 
+### Example usage of tokens
+
+Define a object with the tokens mapped to values in your `unistyles.ts` file.
+
+```ts
+type Tokens = `$${0 | 25 | 50 | 100 | 150 | 200 | 300 | 400 | 500 | 600 | 800}`;
+
+const space = {
+  // Atomic scale (0-4px)
+  $0: 0,
+  $25: 2,
+  $50: 4,
+
+  // Base scale (8-16px)
+  $100: 8, // base unit token
+  $150: 12,
+  $200: 16,
+
+  // Medium scale (24-32px)
+  $300: 24,
+  $400: 32,
+
+  // Large scale (40-64px)
+  $500: 40,
+  $600: 48,
+  $800: 64,
+} as const satisfies Record<Tokens, number>;
+```
+
 ### Using Negative Values
 
 Any token can be made negative by using the `-` operator in your styles:
 
-These could also live as separate tokens, but in this example I like to keep it simple and avoid having to maintain a lot of tokens.
+These could also exist as separate tokens, e.g., in a `space` object in the `unistyles.ts` file, but in this example, I have decided to keep it simple and avoid having to maintain a lot of tokens.
 
 ```tsx
 const styles = StyleSheet.create((theme) => ({
