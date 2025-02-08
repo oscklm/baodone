@@ -17,12 +17,11 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({ children }) => {
 
 const styles = StyleSheet.create((theme, runtime) => ({
   base: {
-    marginBottom: theme.space.$250,
-    variants: {},
+    marginBottom: theme.units.$200,
   },
   seperator: {
     height: 4,
     width: 250,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.primary.base,
   },
 }));

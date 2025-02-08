@@ -1,8 +1,7 @@
 import { ScreenHeader } from "@/components/ScreenHeader";
-import { Stack, Button, Text } from "@/components/ui";
+import { Button, Text } from "@/components/ui";
 import { router } from "expo-router";
 import { ScrollView, View } from "react-native";
-import { Image } from "expo-image";
 import { StyleSheet } from "react-native-unistyles";
 import { Box } from "@/components/ui/Box";
 
@@ -11,50 +10,11 @@ export default function HomeTabScreen() {
     <ScrollView>
       <View style={styles.container}>
         <ScreenHeader>
-          <Text variant="h1">Home</Text>
+          <Text preset="h1">Home</Text>
         </ScreenHeader>
-        <Box us={{ gap: "$300" }}>
-          <Box
-            us={{
-              padding: "$200",
-              borderRadius: "$200",
-              backgroundColor: "primary",
-            }}
-          >
-            <Box height={200} width={200}>
-              <Image
-                source={require("@/assets/images/characters/bun_smile-background-removed.png")}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </Box>
-            <Text variant="h2" color="white">
-              Your personal assistant
-            </Text>
-            <Text variant="body" color="white">
-              Baodone is a simple and easy-to-use app that helps you stay on top
-              of your tasks and reminders. Whether you're a busy professional or
-              a student, Baodone is here to help you stay organized and on top
-              of your tasks.
-            </Text>
-          </Box>
-          <Stack us={{ gap: "$300" }}>
-            <Stack us={{ gap: "$300" }}>
-              <Button title="Button 1" onPress={() => router.push("/help")} />
-              <Button title="Button 2" onPress={() => router.push("/help")} />
-            </Stack>
-            <Stack horizontal wrap="wrap" us={{ gap: "$300" }}>
-              <Button title="Button 3" onPress={() => router.push("/help")} />
-              <Button title="Button 3" onPress={() => router.push("/help")} />
-              <Button title="Button 3" onPress={() => router.push("/help")} />
-            </Stack>
-            <Stack horizontal us={{ gap: "$300" }}>
-              <Button title="Button 4" onPress={() => router.push("/help")} />
-              <Button title="Button 5" onPress={() => router.push("/help")} />
-            </Stack>
-          </Stack>
+        <Box variants={{ padding: "$100", gap: "$200" }}>
+          <Button title="Example 1" onPress={() => router.push("/help")} />
+          <Button title="Example 2" onPress={() => router.push("/help")} />
         </Box>
       </View>
     </ScrollView>
@@ -63,12 +23,12 @@ export default function HomeTabScreen() {
 
 const styles = StyleSheet.create((theme, runtime) => ({
   container: {
-    padding: theme.space.$200,
-    gap: theme.space.$100,
+    padding: theme.units.$200,
+    gap: theme.units.$100,
   },
   buttonContainer: {
     flexDirection: "row",
-    paddingVertical: theme.space.$200,
-    marginHorizontal: theme.space.$400,
+    paddingVertical: theme.units.$200,
+    marginHorizontal: theme.units.$400,
   },
 }));

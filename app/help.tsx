@@ -8,12 +8,12 @@ export default function HelpScreen() {
   return (
     <View style={styles.container}>
       <ScreenHeader>
-        <Text variant="h1">Help</Text>
+        <Text preset="h1">Help</Text>
       </ScreenHeader>
 
       <View>
-        <Text variant="h3">Section #1</Text>
-        <Text variant="body">
+        <Text preset="h3">Section #1</Text>
+        <Text preset="body">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
           quisquam deserunt ullam eos praesentium iure, enim mollitia tempora
           nisi beatae dolorem illo inventore asperiores officia eligendi
@@ -21,8 +21,8 @@ export default function HelpScreen() {
         </Text>
       </View>
       <View>
-        <Text variant="h3">Section #2</Text>
-        <Text variant="body">
+        <Text preset="h3">Section #2</Text>
+        <Text preset="body">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
           quisquam deserunt ullam eos praesentium iure, enim mollitia tempora
           nisi beatae dolorem illo inventore asperiores officia eligendi
@@ -30,8 +30,8 @@ export default function HelpScreen() {
         </Text>
       </View>
       <View>
-        <Text variant="h3">Section #3</Text>
-        <Text variant="body">
+        <Text preset="h3">Section #3</Text>
+        <Text preset="body">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
           quisquam deserunt ullam eos praesentium iure, enim mollitia tempora
           nisi beatae dolorem illo inventore asperiores officia eligendi
@@ -47,7 +47,7 @@ export default function HelpScreen() {
 const styles = StyleSheet.create((theme, runtime) => ({
   container: {
     flex: 1,
-    padding: theme.space.$400,
-    gap: theme.space.$200,
+    padding: theme.units.$400,
+    gap: theme.units.$200,
   },
 }));

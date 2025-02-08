@@ -43,13 +43,13 @@ const styles = StyleSheet.create((theme, runtime) => ({
     },
   },
   tabList: {
-    marginBottom: theme.space.$100,
-    gap: theme.space.$200,
+    marginBottom: theme.units.$100,
+    gap: theme.units.$200,
     flexDirection: {
       xs: "row",
       md: "column",
     },
-    padding: theme.space.$200,
+    padding: theme.units.$200,
     width: {
       xs: "100%",
       md: 100,
@@ -57,6 +57,6 @@ const styles = StyleSheet.create((theme, runtime) => ({
   },
   tabSlot: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.background.base,
   },
 }));

@@ -25,7 +25,7 @@ export const TabButton = forwardRef<View, TabButtonProps>(
         <Icon size={21} color={styles.icon.color} />
       </Pressable>
     );
-  },
+  }
 );
 
 const styles = StyleSheet.create((theme, runtime) => ({
@@ -40,8 +40,8 @@ const styles = StyleSheet.create((theme, runtime) => ({
     },
     alignItems: "center",
     justifyContent: "center",
-    gap: theme.space.$100,
-    paddingVertical: theme.space.$200,
+    gap: theme.units.$100,
+    paddingVertical: theme.units.$200,
     flexDirection:
       runtime.breakpoint === "xs" || runtime.breakpoint === "sm"
         ? "column"
@@ -49,59 +49,52 @@ const styles = StyleSheet.create((theme, runtime) => ({
     variants: {
       isFocused: {
         true: {
-          backgroundColor: theme.colors.primary,
+          backgroundColor: theme.colors.primary.base,
         },
         false: {
-          backgroundColor: theme.colors.backgroundLight,
+          backgroundColor: theme.colors.background.dark,
         },
       },
       position: {
         first: {
           borderTopLeftRadius: {
-            xs: theme.radius.$200,
-            md: theme.radius.$100,
+            xs: theme.radius.$150,
+            md: theme.radius.$150,
           },
-          borderTopRightRadius: theme.radius.$100,
-          borderBottomRightRadius: theme.radius.$100,
+          borderTopRightRadius: theme.radius.$150,
+          borderBottomRightRadius: theme.radius.$150,
           borderBottomLeftRadius: {
-            xs: theme.radius.$200 * 3,
-            md: theme.radius.$100,
+            xs: theme.radius.$150 * 3,
+            md: theme.radius.$150,
           },
         },
         last: {
           borderTopRightRadius: {
-            xs: theme.radius.$200,
-            md: theme.radius.$100,
+            xs: theme.radius.$150,
+            md: theme.radius.$150,
           },
-          borderTopLeftRadius: {
-            xs: theme.radius.$100,
-            md: theme.radius.$100,
-          },
+          borderTopLeftRadius: theme.radius.$150,
+          borderBottomLeftRadius: theme.radius.$150,
           borderBottomRightRadius: {
-            xs: theme.radius.$200 * 3,
-            md: theme.radius.$100,
-          },
-          borderBottomLeftRadius: {
-            xs: theme.radius.$100,
-            md: theme.radius.$100,
+            xs: theme.radius.$150 * 3,
+            md: theme.radius.$150,
           },
         },
         middle: {
-          borderRadius: theme.radius.$100,
+          borderRadius: theme.radius.$200,
         },
         default: {},
       },
     },
   },
   icon: {
-    color: theme.colors.background,
     variants: {
       isFocused: {
         true: {
-          color: theme.colors.background,
+          color: theme.colors.foreground.dark,
         },
         false: {
-          color: theme.colors.backgroundDark,
+          color: theme.colors.foreground.light,
         },
       },
     },

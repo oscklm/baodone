@@ -21,7 +21,7 @@ const ButtonView: React.FC<ButtonViewProps> = ({ title, pressableState }) => {
 
   return (
     <View style={styles.buttonView}>
-      <Text variant="button" color="background" numberOfLines={1}>
+      <Text preset="button" color="foreground" numberOfLines={1}>
         {title}
       </Text>
     </View>
@@ -45,12 +45,12 @@ const styles = StyleSheet.create((theme, runtime) => ({
     flexGrow: 1,
   },
   buttonView: {
-    borderRadius: theme.radius.$100,
-    paddingVertical: theme.space.$200,
+    borderRadius: theme.radius.$150,
+    paddingVertical: theme.units.$100,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: theme.colors.foregroundLight,
+    backgroundColor: theme.colors.button.base,
     variants: {
       pressed: {
         true: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create((theme, runtime) => ({
       },
       hovered: {
         true: {
-          backgroundColor: theme.colors.foreground,
+          backgroundColor: theme.colors.button.light,
         },
       },
     },

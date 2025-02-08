@@ -1,3 +1,4 @@
+import { FontFamily } from "@/unistyles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   type Theme,
@@ -30,13 +31,12 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    BricoExtraBold: require("../assets/fonts/BricolageGrotesque_24pt-ExtraBold.ttf"),
-    BricoRegular: require("../assets/fonts/BricolageGrotesque_24pt-Regular.ttf"),
-    BricoMedium: require("../assets/fonts/BricolageGrotesque_24pt-Medium.ttf"),
-    BricoSemiBold: require("../assets/fonts/BricolageGrotesque_24pt-SemiBold.ttf"),
-    ...FontAwesome.font,
-  });
+    regular: require("../assets/fonts/BricolageGrotesque_24pt-Regular.ttf"),
+    medium: require("../assets/fonts/BricolageGrotesque_24pt-Medium.ttf"),
+    semibold: require("../assets/fonts/BricolageGrotesque_24pt-SemiBold.ttf"),
+    bold: require("../assets/fonts/BricolageGrotesque_24pt-Bold.ttf"),
+    black: require("../assets/fonts/BricolageGrotesque_24pt-ExtraBold.ttf"),
+  } satisfies Record<FontFamily, string>);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -66,15 +66,15 @@ function RootLayoutNav() {
       },
       dark: rt.colorScheme === "dark",
       colors: {
-        background: theme.colors.background,
-        text: theme.colors.foreground,
-        border: theme.colors.foreground,
-        card: theme.colors.background,
-        notification: theme.colors.foreground,
-        primary: theme.colors.primary,
+        background: theme.colors.background.base,
+        text: theme.colors.foreground.base,
+        border: theme.colors.foreground.base,
+        card: theme.colors.background.base,
+        notification: theme.colors.foreground.base,
+        primary: theme.colors.primary.base,
       },
     }),
-    [theme, rt],
+    [theme, rt]
   );
 
   return (
