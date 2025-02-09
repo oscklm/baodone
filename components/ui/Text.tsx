@@ -41,43 +41,43 @@ const styles = StyleSheet.create((th) => ({
       preset: {
         h1: {
           fontFamily: th.fontFamily.black,
-          fontSize: 48, // 48px (3rem)
-          lineHeight: 52, // 52px (3.25rem)
+          fontSize: th.useFontScale(3), // 48px (3rem)
+          lineHeight: th.useFontScale(3.25), // 52px (3.25rem)
         },
         h2: {
           fontFamily: th.fontFamily.black,
-          fontSize: 40, // 40px (2.5rem)
-          lineHeight: 44, // 44px (2.75rem)
+          fontSize: th.useFontScale(2.5), // 40px (2.5rem)
+          lineHeight: th.useFontScale(2.75), // 44px (2.75rem)
         },
         h3: {
           fontFamily: th.fontFamily.black,
-          fontSize: 32, // 32px (2rem)
-          lineHeight: 36, // 36px (2.25rem)
+          fontSize: th.useFontScale(2), // 32px (2rem)
+          lineHeight: th.useFontScale(2.25), // 36px (2.25rem)
         },
         h4: {
           fontFamily: th.fontFamily.black,
-          fontSize: 24, // 24px (1.5rem)
-          lineHeight: 28, // 28px (1.75rem)
+          fontSize: th.useFontScale(1.5), // 24px (1.5rem)
+          lineHeight: th.useFontScale(1.75), // 28px (1.75rem)
         },
         subtitle: {
           fontFamily: th.fontFamily.bold,
-          fontSize: 18, // 18px (1.125rem)
-          lineHeight: 26, // 26px (1.625rem)
+          fontSize: th.useFontScale(1.125), // 18px (1.125rem)
+          lineHeight: th.useFontScale(1.625), // 26px (1.625rem)
         },
         button: {
           fontFamily: th.fontFamily.black,
-          fontSize: 18, // 16px (1rem)
-          lineHeight: 26, // 24px (1.5rem)
+          fontSize: th.useFontScale(1), // 16px (1rem)
+          lineHeight: th.useFontScale(1.5), // 24px (1.5rem)
         },
         body: {
           fontFamily: th.fontFamily.regular,
-          fontSize: 16, // 16px (1rem)
-          lineHeight: 24, // 24px (1.5rem)
+          fontSize: th.useFontScale(1), // 16px (1rem)
+          lineHeight: th.useFontScale(1.5), // 24px (1.5rem)
         },
         small: {
           fontFamily: th.fontFamily.regular,
-          fontSize: 14, // 14px (0.875rem)
-          lineHeight: 20, // 20px (1.25rem)
+          fontSize: th.useFontScale(0.875), // 14px (0.875rem)
+          lineHeight: th.useFontScale(1.25), // 20px (1.25rem)
         },
       },
     },

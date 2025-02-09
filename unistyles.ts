@@ -28,6 +28,7 @@ type RadiusToken =  '$150' | '$200' | '$300' | '$full';
 
 
 const BASE_UNIT = 8;
+const BASE_FONT_SIZE = 16;
 
 /**
  * Unit token values
@@ -187,6 +188,9 @@ const createVariantFromProperty = <P extends StyleProperties>(property: P) => {
 
 const sharedHelpers = {
   createVariantFromProperty,
+  useFontScale: (scale: number) => {
+    return scale * BASE_FONT_SIZE;
+  },
 };
 
 
@@ -205,8 +209,8 @@ const lightTheme = {
     },
     foreground: {
       light: colors.dark['500'],
-      base: colors.dark['400'],
-      dark: colors.dark['300'],
+      base: colors.dark['500'],
+      dark: colors.dark['400'],
     },
     primary: {
       light: colors.purple['100'],
@@ -243,8 +247,8 @@ const darkTheme = {
     },
     foreground: {
       light: colors.light['100'],
-      base: colors.light['200'],
-      dark: colors.light['300'],
+      base: colors.light['100'],
+      dark: colors.light['200'],
     },
     button: {
       light: colors.dark['200'],

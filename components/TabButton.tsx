@@ -1,8 +1,8 @@
 import type { TabTriggerSlotProps } from "expo-router/ui";
 import { Pressable, type View } from "react-native";
-import { forwardRef } from "react";
 import { StyleSheet } from "react-native-unistyles";
 import { Icons } from "./ui/Icons";
+import React from "react";
 type Icon = keyof typeof Icons;
 
 type TabButtonProps = TabTriggerSlotProps & {
@@ -10,7 +10,7 @@ type TabButtonProps = TabTriggerSlotProps & {
   position?: "first" | "last" | "middle";
 };
 
-export const TabButton = forwardRef<View, TabButtonProps>(
+export const TabButton = React.forwardRef<View, TabButtonProps>(
   ({ children, isFocused, icon, style, position, ...props }, ref) => {
     const Icon = Icons[icon];
 
@@ -26,6 +26,8 @@ export const TabButton = forwardRef<View, TabButtonProps>(
     );
   }
 );
+
+TabButton.displayName = "TabButton";
 
 const styles = StyleSheet.create((th, rt) => ({
   container: {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
-import { StyleSheet, useUnistyles } from "react-native-unistyles";
+import { StyleSheet } from "react-native-unistyles";
 import { Tabs, TabList, TabTrigger, TabSlot } from "expo-router/ui";
 import { TabButton } from "@/components/TabButton";
 
@@ -69,6 +69,5 @@ const styles = StyleSheet.create((th, rt) => ({
   },
   tabSlot: {
     flex: 1,
-    backgroundColor: th.colors.background.base,
   },
 }));

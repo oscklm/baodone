@@ -21,7 +21,7 @@ const ButtonView: React.FC<ButtonViewProps> = ({ title, pressableState }) => {
 
   return (
     <View style={styles.buttonView}>
-      <Text preset="button" color="foreground" numberOfLines={1}>
+      <Text numberOfLines={1} preset="button" color="foreground">
         {title}
       </Text>
     </View>

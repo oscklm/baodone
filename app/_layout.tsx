@@ -122,9 +122,7 @@ function RootLayoutNav() {
           options={{
             title: "Help",
             headerShown: Platform.OS === "web",
-            presentation: "formSheet",
-            sheetElevation: 24,
-            sheetGrabberVisible: true,
+            presentation: "modal",
           }}
         />
         <Stack.Screen

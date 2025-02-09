@@ -1,13 +1,21 @@
 import type React from "react";
 import { View } from "react-native";
-import { StyleSheet } from "react-native-unistyles";
+import { StyleSheet, UnistylesVariants } from "react-native-unistyles";
 import { Box } from "@/components/ui";
 
-type ScreenHeaderProps = {
-  children: React.ReactNode;
-};
+type Variants = UnistylesVariants<typeof styles>;
 
-export const ScreenHeader: React.FC<ScreenHeaderProps> = ({ children }) => {
+interface ScreenHeaderProps extends Variants {
+  children: React.ReactNode;
+}
+
+export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
+  children,
+  enableTopMargin,
+}) => {
+  styles.useVariants({
+    enableTopMargin,
+  });
   return (
     <View style={styles.base}>
       {children}
@@ -27,6 +35,14 @@ const styles = StyleSheet.create((theme, runtime) => ({
   base: {
     marginBottom: theme.units.$200,
     gap: theme.units.$050,
+    variants: {
+      enableTopMargin: {
+        true: {
+          marginTop: theme.units.$100,
+        },
+        default: {},
+      },
+    },
   },
   separator: {
     flex: 1,
