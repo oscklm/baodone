@@ -91,21 +91,21 @@ function RootLayoutNav() {
                   variants={{
                     direction: "row",
                     alignItems: "center",
-                    gap: "$100",
-                    paddingLeft: "$200",
+                    gap: "$050",
+                    paddingLeft: rt.breakpoint === "xs" ? undefined : "$200",
                   }}
                 >
                   <Icons.ArrowLeft
                     color={
                       hovered
                         ? theme.colors.foreground.base
-                        : theme.colors.background.dark
+                        : theme.colors.foreground.dark
                     }
-                    style={{ width: theme.sizes.sm, height: theme.sizes.sm }}
+                    style={{ width: theme.sizes.xs, height: theme.sizes.xs }}
                   />
                   <Text
-                    preset="h4"
-                    color={hovered ? "foreground" : "background"}
+                    preset="subtitle"
+                    color="foreground"
                     contrast={hovered ? "base" : "dark"}
                   >
                     Back
@@ -125,6 +125,12 @@ function RootLayoutNav() {
             presentation: "formSheet",
             sheetElevation: 24,
             sheetGrabberVisible: true,
+          }}
+        />
+        <Stack.Screen
+          name="example"
+          options={{
+            title: "Example",
           }}
         />
       </Stack>

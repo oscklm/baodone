@@ -15,12 +15,14 @@ export default function HomeTabScreen() {
 
         <Box variants={{ direction: "column", gap: "$200" }}>
           <Box variants={{ gap: "$200" }}>
-            <Button title="Example 1" onPress={() => router.push("/help")} />
-            <Button title="Example 2" onPress={() => router.push("/help")} />
-          </Box>
-          <Box variants={{ direction: "row", gap: "$200" }}>
-            <Button title="Example 1" onPress={() => router.push("/help")} />
-            <Button title="Example 2" onPress={() => router.push("/help")} />
+            <Button
+              title="Open help modal"
+              onPress={() => router.push("/help")}
+            />
+            <Button
+              title="Navigate to example"
+              onPress={() => router.push("/example")}
+            />
           </Box>
         </Box>
       </View>

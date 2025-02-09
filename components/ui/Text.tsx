@@ -11,7 +11,7 @@ interface TextProps extends RNTextProps, UnistylesVariants<typeof styles> {
 export const Text: React.FC<TextProps> = ({
   children,
   as,
-  preset,
+  preset = "body",
   color = "foreground",
   contrast = "base",
   style,

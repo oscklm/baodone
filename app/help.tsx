@@ -48,7 +48,7 @@ const styles = StyleSheet.create((th, rt) => ({
   container: {
     flex: 1,
     paddingTop: rt.insets.top,
-    paddingHorizontal: th.units.$400,
+    paddingHorizontal: th.units.$200,
     gap: th.units.$200,
   },
 }));
