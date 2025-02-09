@@ -16,12 +16,8 @@ export default function SearchTabScreen() {
 
 const styles = StyleSheet.create((th) => ({
   container: {
-    padding: th.units.$200,
+    paddingTop: th.units.$100,
+    paddingHorizontal: th.units.$200,
     gap: th.units.$100,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    paddingVertical: th.units.$200,
-    marginHorizontal: th.units.$400,
   },
 }));

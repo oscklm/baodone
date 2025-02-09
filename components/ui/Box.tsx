@@ -32,6 +32,17 @@ const styles = StyleSheet.create((th) => ({
           flexDirection: "column-reverse",
         },
       },
+      alignItems: {
+        center: {
+          alignItems: "center",
+        },
+        start: {
+          alignItems: "flex-start",
+        },
+        end: {
+          alignItems: "flex-end",
+        },
+      },
       margin: th.createVariantFromProperty("margin"),
       padding: th.createVariantFromProperty("padding"),
       paddingX: th.createVariantFromProperty("paddingHorizontal"),

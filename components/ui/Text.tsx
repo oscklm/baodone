@@ -54,6 +54,11 @@ const styles = StyleSheet.create((th) => ({
           fontSize: 32, // 32px (2rem)
           lineHeight: 36, // 36px (2.25rem)
         },
+        h4: {
+          fontFamily: th.fontFamily.black,
+          fontSize: 24, // 24px (1.5rem)
+          lineHeight: 28, // 28px (1.75rem)
+        },
         subtitle: {
           fontFamily: th.fontFamily.bold,
           fontSize: 18, // 18px (1.125rem)

@@ -1,3 +1,4 @@
+import { Box, Icons, Text } from "@/components/ui";
 import { FontFamily } from "@/unistyles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
@@ -8,11 +9,11 @@ import {
 } from "@react-navigation/native";
 
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React from "react";
 import { useEffect } from "react";
-import { Platform } from "react-native";
+import { Platform, Pressable } from "react-native";
 import "react-native-reanimated";
 import { useUnistyles } from "react-native-unistyles";
 
@@ -83,6 +84,36 @@ function RootLayoutNav() {
         screenOptions={{
           headerShadowVisible: false,
           headerTitle: () => null,
+          headerLeft: ({ canGoBack, label }) => (
+            <Pressable onPress={() => (canGoBack ? router.back() : null)}>
+              {({ pressed, hovered }) => (
+                <Box
+                  variants={{
+                    direction: "row",
+                    alignItems: "center",
+                    gap: "$100",
+                    paddingLeft: "$200",
+                  }}
+                >
+                  <Icons.ArrowLeft
+                    color={
+                      hovered
+                        ? theme.colors.foreground.base
+                        : theme.colors.background.dark
+                    }
+                    style={{ width: theme.sizes.sm, height: theme.sizes.sm }}
+                  />
+                  <Text
+                    preset="h4"
+                    color={hovered ? "foreground" : "background"}
+                    contrast={hovered ? "base" : "dark"}
+                  >
+                    Back
+                  </Text>
+                </Box>
+              )}
+            </Pressable>
+          ),
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
