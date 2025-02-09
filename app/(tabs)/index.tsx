@@ -13,28 +13,25 @@ export default function HomeTabScreen() {
           <Text preset="h1">Home</Text>
         </ScreenHeader>
 
-        <Box variants={{ padding: "$100", gap: "$200" }}>
-          <Button title="Example 1" onPress={() => router.push("/help")} />
-          <Button title="Example 2" onPress={() => router.push("/help")} />
-        </Box>
-
-        <Box variants={{ direction: "row", padding: "$100", gap: "$200" }}>
-          <Button title="Example 1" onPress={() => router.push("/help")} />
-          <Button title="Example 2" onPress={() => router.push("/help")} />
+        <Box variants={{ direction: "column", gap: "$200" }}>
+          <Box variants={{ gap: "$200" }}>
+            <Button title="Example 1" onPress={() => router.push("/help")} />
+            <Button title="Example 2" onPress={() => router.push("/help")} />
+          </Box>
+          <Box variants={{ direction: "row", gap: "$200" }}>
+            <Button title="Example 1" onPress={() => router.push("/help")} />
+            <Button title="Example 2" onPress={() => router.push("/help")} />
+          </Box>
         </Box>
       </View>
     </ScrollView>
   );
 }
 
-const styles = StyleSheet.create((theme, runtime) => ({
+const styles = StyleSheet.create((th, rt) => ({
   container: {
-    padding: theme.units.$200,
-    gap: theme.units.$100,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    paddingVertical: theme.units.$200,
-    marginHorizontal: theme.units.$400,
+    paddingTop: th.units.$100,
+    paddingHorizontal: th.units.$200,
+    gap: th.units.$100,
   },
 }));

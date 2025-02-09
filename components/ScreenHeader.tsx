@@ -15,7 +15,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({ children }) => {
         {Array.from({ length: 10 }).map((_, index) => (
           <View
             key={index}
-            style={[styles.separator, { opacity: (10 - index - 1) * 0.1 }]}
+            style={[styles.separator, { opacity: (11 - index - 1) * 0.1 }]}
           />
         ))}
       </Box>
@@ -29,9 +29,9 @@ const styles = StyleSheet.create((theme, runtime) => ({
     gap: theme.units.$050,
   },
   separator: {
-    height: 8,
     flex: 1,
-    maxWidth: 20,
+    height: theme.units.$050,
+    maxWidth: theme.units.$200,
     borderRadius: theme.radius.$150,
     backgroundColor: theme.colors.primary.base,
   },

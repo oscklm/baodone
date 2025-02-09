@@ -62,11 +62,11 @@ const units = {
  * used for icons, buttons, etc.
  */
 const sizes = {
-  xs: units.$100,
-  sm: units.$200,
-  md: units.$300,
-  lg: units.$400,
-  xl: units.$500,
+  xs: units.$300,
+  sm: units.$400,
+  md: units.$500,
+  lg: units.$600,
+  xl: units.$800,
 } as const satisfies Record<SizeToken, NonNullable<UnitValue>>;
 
 /**
@@ -86,7 +86,8 @@ const breakpoints = {
   xs: 0,
   sm: 480,
   md: 834,
-  lg: 1440,
+  lg: 1200,
+  xl: 1440,
 } as const;
 
 

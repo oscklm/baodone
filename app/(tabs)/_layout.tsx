@@ -33,30 +33,42 @@ export default function TabLayout() {
   );
 }
 
-const styles = StyleSheet.create((theme, runtime) => ({
+const styles = StyleSheet.create((th, rt) => ({
   container: {
     flex: 1,
-    paddingTop: runtime.insets.top,
+    paddingTop: rt.insets.top,
     flexDirection: {
       xs: "column",
-      md: "row-reverse",
+      sm: "row-reverse",
     },
   },
   tabList: {
-    marginBottom: theme.units.$100,
-    gap: theme.units.$200,
+    marginBottom: th.units.$100,
+    gap: th.units.$200,
     flexDirection: {
       xs: "row",
-      md: "column",
+      sm: "column",
     },
-    padding: theme.units.$200,
+    margin: {
+      xs: 0,
+      sm: th.units.$200,
+    },
+    padding: {
+      xs: th.units.$200,
+      sm: 0,
+    },
+    marginRight: {
+      xs: 0,
+      sm: 0,
+    },
     width: {
       xs: "100%",
-      md: 100,
+      sm: 100,
+      md: 200,
     },
   },
   tabSlot: {
     flex: 1,
-    backgroundColor: theme.colors.background.base,
+    backgroundColor: th.colors.background.base,
   },
 }));

@@ -44,10 +44,11 @@ export default function HelpScreen() {
   );
 }
 
-const styles = StyleSheet.create((theme, runtime) => ({
+const styles = StyleSheet.create((th, rt) => ({
   container: {
     flex: 1,
-    padding: theme.units.$400,
-    gap: theme.units.$200,
+    paddingTop: rt.insets.top,
+    paddingHorizontal: th.units.$400,
+    gap: th.units.$200,
   },
 }));

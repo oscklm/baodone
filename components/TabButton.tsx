@@ -31,18 +31,20 @@ const styles = StyleSheet.create((th, rt) => ({
   container: {
     flex: {
       xs: 1,
-      md: 0,
+      sm: 0,
     },
     minHeight: {
       xs: 0,
-      md: th.units.$600,
+      sm: 50,
     },
     alignItems: "center",
     justifyContent: "center",
     gap: th.units.$100,
     paddingVertical: th.units.$200,
-    flexDirection:
-      rt.breakpoint === "xs" || rt.breakpoint === "sm" ? "column" : "row",
+    flexDirection: {
+      xs: "column",
+      sm: "row",
+    },
     variants: {
       isFocused: {
         true: {
@@ -56,25 +58,25 @@ const styles = StyleSheet.create((th, rt) => ({
         first: {
           borderTopLeftRadius: {
             xs: th.radius.$150,
-            md: th.radius.$150,
+            sm: th.radius.$150,
           },
           borderTopRightRadius: th.radius.$150,
           borderBottomRightRadius: th.radius.$150,
           borderBottomLeftRadius: {
             xs: th.radius.$150 * 3,
-            md: th.radius.$150,
+            sm: th.radius.$150,
           },
         },
         last: {
           borderTopRightRadius: {
             xs: th.radius.$150,
-            md: th.radius.$150,
+            sm: th.radius.$150,
           },
           borderTopLeftRadius: th.radius.$150,
           borderBottomLeftRadius: th.radius.$150,
           borderBottomRightRadius: {
             xs: th.radius.$150 * 3,
-            md: th.radius.$150,
+            sm: th.radius.$150,
           },
         },
         middle: {
